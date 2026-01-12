@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DanhMuc_DAL
+    public class DanhMuc_DAL : Connect
     {
 
     }

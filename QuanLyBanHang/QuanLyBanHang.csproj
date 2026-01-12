@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DsQuanLyBanHang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsQuanLyBanHang.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +110,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DsQuanLyBanHang.xsc">
+      <DependentUpon>DsQuanLyBanHang.xsd</DependentUpon>
+    </None>
+    <None Include="DsQuanLyBanHang.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsQuanLyBanHang.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsQuanLyBanHang.xss">
+      <DependentUpon>DsQuanLyBanHang.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
