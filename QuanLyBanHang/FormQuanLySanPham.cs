@@ -16,5 +16,10 @@ namespace QuanLyBanHang
         {
             InitializeComponent();
         }
+
+        private void picAnhSP_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
