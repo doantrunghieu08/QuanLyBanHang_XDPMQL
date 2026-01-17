@@ -32,6 +32,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvQLThanhToan = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboPTTT = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -45,11 +50,6 @@
             this.txtMaThanhToan = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.cboPTTT = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQLThanhToan)).BeginInit();
@@ -82,8 +82,10 @@
             // 
             // dgvQLThanhToan
             // 
+            this.dgvQLThanhToan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvQLThanhToan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQLThanhToan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvQLThanhToan.Location = new System.Drawing.Point(0, 0);
             this.dgvQLThanhToan.Margin = new System.Windows.Forms.Padding(2);
             this.dgvQLThanhToan.Name = "dgvQLThanhToan";
@@ -105,12 +107,54 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.richTextBox1);
             this.panel3.Controls.Add(this.txtMaThanhToan);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 80);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1046, 240);
             this.panel3.TabIndex = 3;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(661, 27);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
+            this.dateTimePicker1.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(661, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(225, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(535, 66);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Trạng Thái Thanh Toán";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(562, 27);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Ngày Thanh Toán";
+            // 
+            // cboPTTT
+            // 
+            this.cboPTTT.FormattingEnabled = true;
+            this.cboPTTT.Location = new System.Drawing.Point(250, 58);
+            this.cboPTTT.Name = "cboPTTT";
+            this.cboPTTT.Size = new System.Drawing.Size(178, 21);
+            this.cboPTTT.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -244,7 +288,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1046, 80);
+            this.panel2.Size = new System.Drawing.Size(1046, 320);
             this.panel2.TabIndex = 2;
             // 
             // label4
@@ -257,49 +301,6 @@
             this.label4.Size = new System.Drawing.Size(220, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Quản Lý Thanh Toán";
-            // 
-            // cboPTTT
-            // 
-            this.cboPTTT.FormattingEnabled = true;
-            this.cboPTTT.Location = new System.Drawing.Point(250, 58);
-            this.cboPTTT.Name = "cboPTTT";
-            this.cboPTTT.Size = new System.Drawing.Size(178, 21);
-            this.cboPTTT.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(562, 27);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Ngày Thanh Toán";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(535, 66);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Trạng Thái Thanh Toán";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(661, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(225, 21);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(661, 27);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
-            this.dateTimePicker1.TabIndex = 11;
             // 
             // FormQuanLyThanhToan
             // 

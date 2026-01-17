@@ -31,14 +31,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtTuKhoa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnXuatExcel = new System.Windows.Forms.Button();
-            this.btnXuatPdf = new System.Windows.Forms.Button();
-            this.btnThongKe = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
+            this.btnXuatPdf = new System.Windows.Forms.Button();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.dgvTKDanhMuc = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -49,13 +49,16 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.75F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dgvTKDanhMuc, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, -1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -80,6 +83,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.txtTuKhoa);
             this.panel1.Controls.Add(this.label2);
@@ -87,6 +91,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 52);
             this.panel1.TabIndex = 1;
+            // 
+            // txtTuKhoa
+            // 
+            this.txtTuKhoa.Location = new System.Drawing.Point(298, 16);
+            this.txtTuKhoa.Name = "txtTuKhoa";
+            this.txtTuKhoa.Size = new System.Drawing.Size(236, 20);
+            this.txtTuKhoa.TabIndex = 5;
             // 
             // label2
             // 
@@ -98,15 +109,11 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Từ Khóa:";
             // 
-            // txtTuKhoa
-            // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(298, 16);
-            this.txtTuKhoa.Name = "txtTuKhoa";
-            this.txtTuKhoa.Size = new System.Drawing.Size(236, 20);
-            this.txtTuKhoa.TabIndex = 5;
-            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Location = new System.Drawing.Point(3, 116);
@@ -116,6 +123,9 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -125,55 +135,58 @@
             this.tableLayoutPanel2.Controls.Add(this.btnThongKe, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnXuatPdf, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnXuatExcel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(797, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(791, 49);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // btnXuatExcel
-            // 
-            this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXuatExcel.Location = new System.Drawing.Point(62, 13);
-            this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnXuatExcel.TabIndex = 1;
-            this.btnXuatExcel.Text = "Xuất Excel";
-            this.btnXuatExcel.UseVisualStyleBackColor = true;
-            // 
-            // btnXuatPdf
-            // 
-            this.btnXuatPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXuatPdf.Location = new System.Drawing.Point(261, 13);
-            this.btnXuatPdf.Name = "btnXuatPdf";
-            this.btnXuatPdf.Size = new System.Drawing.Size(75, 23);
-            this.btnXuatPdf.TabIndex = 2;
-            this.btnXuatPdf.Text = "Xuất Pdf";
-            this.btnXuatPdf.UseVisualStyleBackColor = true;
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThongKe.Location = new System.Drawing.Point(460, 13);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(75, 23);
-            this.btnThongKe.TabIndex = 3;
-            this.btnThongKe.Text = "Thống kê";
-            this.btnThongKe.UseVisualStyleBackColor = true;
             // 
             // btnThoat
             // 
             this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThoat.Location = new System.Drawing.Point(659, 13);
+            this.btnThoat.Location = new System.Drawing.Point(653, 13);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnThongKe.Location = new System.Drawing.Point(455, 13);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(75, 23);
+            this.btnThongKe.TabIndex = 3;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            // 
+            // btnXuatPdf
+            // 
+            this.btnXuatPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnXuatPdf.Location = new System.Drawing.Point(258, 13);
+            this.btnXuatPdf.Name = "btnXuatPdf";
+            this.btnXuatPdf.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatPdf.TabIndex = 2;
+            this.btnXuatPdf.Text = "Xuất Pdf";
+            this.btnXuatPdf.UseVisualStyleBackColor = true;
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnXuatExcel.Location = new System.Drawing.Point(61, 13);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatExcel.TabIndex = 1;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            // 
             // dgvTKDanhMuc
             // 
+            this.dgvTKDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTKDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgvTKDanhMuc, 2);
             this.dgvTKDanhMuc.Location = new System.Drawing.Point(3, 174);
