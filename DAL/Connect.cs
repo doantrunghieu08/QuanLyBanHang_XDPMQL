@@ -8,7 +8,7 @@ namespace DAL
     public class Connect
     {
         // 1. Chuỗi kết nối DB (Đúng theo yêu cầu của bạn)
-        private string strCon = @"Data Source=TRUNGHIEU\SQLEXPRESS;Initial Catalog=QuanLyBanHang_N01;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private string strCon = @"Data Source=TRUNGHIEU\SQLEXPRESS;Initial Catalog=QuanLyBanHang_N01;Integrated Security=True;Encrypt=False";
 
         // 2. Hàm trả về đối tượng kết nối (Dùng cho các hàm xử lý riêng bên ngoài nếu cần)
         public SqlConnection GetConnection()

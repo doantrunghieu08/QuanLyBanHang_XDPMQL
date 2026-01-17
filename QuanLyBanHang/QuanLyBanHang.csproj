@@ -106,6 +106,9 @@
     <EmbeddedResource Include="FormQuanLyDanhMuc.resx">
       <DependentUpon>FormQuanLyDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormQuanLyDonHang.resx">
+      <DependentUpon>FormQuanLyDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
