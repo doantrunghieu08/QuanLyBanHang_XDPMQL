@@ -101,8 +101,29 @@ namespace DAL
                         transaction.Rollback();
                         throw new Exception("Lỗi giao dịch (Transaction): " + ex.Message);
                     }
+
                 }
+
             }
+
+        }
+        public DataTable loadDataByParameter(SqlCommand cmd)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = GetConnection()) // Tạo kết nối mới
+            {
+                conn.Open();
+
+                // --- ĐÂY LÀ DÒNG BẠN THIẾU ---
+                cmd.Connection = conn; // <== Phải gán kết nối cho lệnh cmd
+                // -----------------------------
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            } // Tự động đóng kết nối ở đây
+            return dt;
         }
     }
 }
