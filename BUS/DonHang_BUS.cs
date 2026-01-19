@@ -57,19 +57,11 @@ namespace BUS
         /// <summary>
         /// Tìm kiếm đơn hàng theo từ khóa và khoảng thời gian.
         /// </summary>
-        public DataTable TimKiemDonHang(string keyword, DateTime fromDate, DateTime toDate)
+        public DataTable TimKiemDonHang(string keyword)
         {
-            // LOGIC BUS: Kiểm tra ngày bắt đầu không được lớn hơn ngày kết thúc
-            if (fromDate > toDate)
-            {
-                // Cách 1: Tự động đảo ngược ngày
-                // DateTime temp = fromDate; fromDate = toDate; toDate = temp;
+           
 
-                // Cách 2: Trả về null để báo lỗi
-                return null;
-            }
-
-            return dal.SearchOrders(keyword, fromDate, toDate);
+            return dal.SearchOrders(keyword);
         }
 
         /// <summary>

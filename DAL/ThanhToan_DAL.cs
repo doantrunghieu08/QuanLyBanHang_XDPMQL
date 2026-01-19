@@ -169,5 +169,31 @@ namespace DAL
                 return true;
             return false;
         }
+
+        public DataTable loadTrangThaiThanhToan()
+        {
+            return db.LoadData("SELECT StatusID_N01, StatusName_N01 FROM dbo.PaymentStatus_N01");
+
+        }
+        // Lấy danh sách tất cả thanh toán (kèm tên phương thức và trạng thái)
+        public DataTable GetAllPayments()
+        {
+            string sql = @"
+        SELECT 
+            p.PaymentID_N01,
+            p.OrderID_N01, 
+            p.Amount_N01, 
+            p.PaymentDate_N01,
+            p.MethodID_N01, 
+            m.MethodName_N01,    -- Lấy tên phương thức
+            p.StatusID_N01, 
+            ps.StatusName_N01    -- Lấy tên trạng thái
+        FROM Payments_N01 p
+        LEFT JOIN PaymentMethods_N01 m ON p.MethodID_N01 = m.MethodID_N01
+        LEFT JOIN PaymentStatus_N01 ps ON p.StatusID_N01 = ps.StatusID_N01
+        ORDER BY p.PaymentDate_N01 DESC"; // Sắp xếp ngày mới nhất lên đầu
+
+            return db.LoadData(sql);
+        }
     }
 }

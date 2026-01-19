@@ -96,5 +96,15 @@ namespace DAL
 
             db.Execute(sql, para);
         }
+
+        public DataTable loadRole()
+        {
+            return db.LoadData(@"SELECT RoleID_N01, RoleName_N01 FROM dbo.Roles_N01");
+        }
+
+        public DataTable loadSatus()
+        {
+            return db.LoadData("SELECT Status_N01 FROM dbo.User_N01");
+        }
     }
 }

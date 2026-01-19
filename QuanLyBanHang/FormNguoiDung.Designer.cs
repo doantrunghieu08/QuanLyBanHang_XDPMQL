@@ -31,35 +31,35 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvUser = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtStatus = new System.Windows.Forms.Label();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.lbDC = new System.Windows.Forms.Label();
+            this.lbSDT = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbpwd = new System.Windows.Forms.Label();
+            this.lb2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbbRole = new System.Windows.Forms.ComboBox();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
+            this.txtMaNguoiDung = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtMaNguoiDung = new System.Windows.Forms.TextBox();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtPwd = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.cbbStatus = new System.Windows.Forms.ComboBox();
-            this.cbbRole = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lb2 = new System.Windows.Forms.Label();
-            this.lbpwd = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.lbSDT = new System.Windows.Forms.Label();
-            this.lbDC = new System.Windows.Forms.Label();
-            this.lbRole = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,6 +75,7 @@
             // 
             // dgvUser
             // 
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUser.Location = new System.Drawing.Point(0, 376);
@@ -83,6 +84,7 @@
             this.dgvUser.RowTemplate.Height = 24;
             this.dgvUser.Size = new System.Drawing.Size(1324, 374);
             this.dgvUser.TabIndex = 2;
+            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
             // 
             // panel3
             // 
@@ -96,7 +98,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.cbbRole);
             this.panel3.Controls.Add(this.cbbStatus);
-            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.txtEmail);
             this.panel3.Controls.Add(this.txtPwd);
             this.panel3.Controls.Add(this.txtDiaChi);
             this.panel3.Controls.Add(this.txtUsername);
@@ -109,24 +111,135 @@
             this.panel3.Size = new System.Drawing.Size(1324, 255);
             this.panel3.TabIndex = 1;
             // 
-            // panel2
+            // txtStatus
             // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1324, 121);
-            this.panel2.TabIndex = 0;
+            this.txtStatus.AutoSize = true;
+            this.txtStatus.Location = new System.Drawing.Point(651, 159);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(44, 16);
+            this.txtStatus.TabIndex = 24;
+            this.txtStatus.Text = "Status";
             // 
-            // label4
+            // lbRole
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(502, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(269, 38);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Quản lý người dùng\r\n";
+            this.lbRole.AutoSize = true;
+            this.lbRole.Location = new System.Drawing.Point(260, 164);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(36, 16);
+            this.lbRole.TabIndex = 23;
+            this.lbRole.Text = "Role";
+            // 
+            // lbDC
+            // 
+            this.lbDC.AutoSize = true;
+            this.lbDC.Location = new System.Drawing.Point(651, 80);
+            this.lbDC.Name = "lbDC";
+            this.lbDC.Size = new System.Drawing.Size(47, 16);
+            this.lbDC.TabIndex = 22;
+            this.lbDC.Text = "Địa chỉ";
+            // 
+            // lbSDT
+            // 
+            this.lbSDT.AutoSize = true;
+            this.lbSDT.Location = new System.Drawing.Point(652, 40);
+            this.lbSDT.Name = "lbSDT";
+            this.lbSDT.Size = new System.Drawing.Size(34, 16);
+            this.lbSDT.TabIndex = 21;
+            this.lbSDT.Text = "SĐT";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(651, 121);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(41, 16);
+            this.lbEmail.TabIndex = 20;
+            this.lbEmail.Text = "Email";
+            // 
+            // lbpwd
+            // 
+            this.lbpwd.AutoSize = true;
+            this.lbpwd.Location = new System.Drawing.Point(233, 121);
+            this.lbpwd.Name = "lbpwd";
+            this.lbpwd.Size = new System.Drawing.Size(67, 16);
+            this.lbpwd.TabIndex = 19;
+            this.lbpwd.Text = "Password";
+            // 
+            // lb2
+            // 
+            this.lb2.AutoSize = true;
+            this.lb2.Location = new System.Drawing.Point(232, 79);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(70, 16);
+            this.lb2.TabIndex = 18;
+            this.lb2.Text = "Username";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(204, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Mã người dùng";
+            // 
+            // cbbRole
+            // 
+            this.cbbRole.FormattingEnabled = true;
+            this.cbbRole.Location = new System.Drawing.Point(302, 156);
+            this.cbbRole.Name = "cbbRole";
+            this.cbbRole.Size = new System.Drawing.Size(192, 24);
+            this.cbbRole.TabIndex = 16;
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Location = new System.Drawing.Point(702, 151);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(210, 24);
+            this.cbbStatus.TabIndex = 15;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(702, 115);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(210, 22);
+            this.txtEmail.TabIndex = 13;
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.Location = new System.Drawing.Point(302, 115);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(192, 22);
+            this.txtPwd.TabIndex = 12;
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Location = new System.Drawing.Point(702, 73);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(210, 22);
+            this.txtDiaChi.TabIndex = 11;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(302, 74);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(192, 22);
+            this.txtUsername.TabIndex = 10;
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(702, 34);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(210, 22);
+            this.txtSDT.TabIndex = 9;
+            // 
+            // txtMaNguoiDung
+            // 
+            this.txtMaNguoiDung.Location = new System.Drawing.Point(302, 34);
+            this.txtMaNguoiDung.Name = "txtMaNguoiDung";
+            this.txtMaNguoiDung.Size = new System.Drawing.Size(192, 22);
+            this.txtMaNguoiDung.TabIndex = 8;
             // 
             // tableLayoutPanel1
             // 
@@ -159,6 +272,7 @@
             this.button5.TabIndex = 11;
             this.button5.Text = "Thoát";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -180,6 +294,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Xuất excel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -190,6 +305,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -200,136 +316,26 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // txtMaNguoiDung
+            // panel2
             // 
-            this.txtMaNguoiDung.Location = new System.Drawing.Point(302, 34);
-            this.txtMaNguoiDung.Name = "txtMaNguoiDung";
-            this.txtMaNguoiDung.Size = new System.Drawing.Size(192, 22);
-            this.txtMaNguoiDung.TabIndex = 8;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1324, 121);
+            this.panel2.TabIndex = 0;
             // 
-            // txtSDT
+            // label4
             // 
-            this.txtSDT.Location = new System.Drawing.Point(702, 34);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(210, 22);
-            this.txtSDT.TabIndex = 9;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(302, 74);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(192, 22);
-            this.txtUsername.TabIndex = 10;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(702, 73);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(210, 22);
-            this.txtDiaChi.TabIndex = 11;
-            // 
-            // txtPwd
-            // 
-            this.txtPwd.Location = new System.Drawing.Point(302, 115);
-            this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(192, 22);
-            this.txtPwd.TabIndex = 12;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(702, 115);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(210, 22);
-            this.textBox6.TabIndex = 13;
-            // 
-            // cbbStatus
-            // 
-            this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.Location = new System.Drawing.Point(702, 151);
-            this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(210, 24);
-            this.cbbStatus.TabIndex = 15;
-            // 
-            // cbbRole
-            // 
-            this.cbbRole.FormattingEnabled = true;
-            this.cbbRole.Location = new System.Drawing.Point(302, 156);
-            this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(192, 24);
-            this.cbbRole.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(204, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Mã người dùng";
-            // 
-            // lb2
-            // 
-            this.lb2.AutoSize = true;
-            this.lb2.Location = new System.Drawing.Point(232, 79);
-            this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(70, 16);
-            this.lb2.TabIndex = 18;
-            this.lb2.Text = "Username";
-            // 
-            // lbpwd
-            // 
-            this.lbpwd.AutoSize = true;
-            this.lbpwd.Location = new System.Drawing.Point(233, 121);
-            this.lbpwd.Name = "lbpwd";
-            this.lbpwd.Size = new System.Drawing.Size(67, 16);
-            this.lbpwd.TabIndex = 19;
-            this.lbpwd.Text = "Password";
-            // 
-            // lbEmail
-            // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(652, 121);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(41, 16);
-            this.lbEmail.TabIndex = 20;
-            this.lbEmail.Text = "Email";
-            // 
-            // lbSDT
-            // 
-            this.lbSDT.AutoSize = true;
-            this.lbSDT.Location = new System.Drawing.Point(652, 40);
-            this.lbSDT.Name = "lbSDT";
-            this.lbSDT.Size = new System.Drawing.Size(34, 16);
-            this.lbSDT.TabIndex = 21;
-            this.lbSDT.Text = "SĐT";
-            // 
-            // lbDC
-            // 
-            this.lbDC.AutoSize = true;
-            this.lbDC.Location = new System.Drawing.Point(652, 80);
-            this.lbDC.Name = "lbDC";
-            this.lbDC.Size = new System.Drawing.Size(47, 16);
-            this.lbDC.TabIndex = 22;
-            this.lbDC.Text = "Địa chỉ";
-            // 
-            // lbRole
-            // 
-            this.lbRole.AutoSize = true;
-            this.lbRole.Location = new System.Drawing.Point(260, 164);
-            this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(36, 16);
-            this.lbRole.TabIndex = 23;
-            this.lbRole.Text = "Role";
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.AutoSize = true;
-            this.txtStatus.Location = new System.Drawing.Point(652, 159);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(44, 16);
-            this.txtStatus.TabIndex = 24;
-            this.txtStatus.Text = "Status";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(502, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(269, 38);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Quản lý người dùng\r\n";
             // 
             // FormNguoiDung
             // 
@@ -344,9 +350,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -369,7 +375,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.ComboBox cbbStatus;
         private System.Windows.Forms.ComboBox cbbRole;
         private System.Windows.Forms.Label label1;

@@ -177,5 +177,15 @@ namespace BUS
         }
 
         #endregion
+
+        public DataTable loadRole()
+        {
+            return dal.loadRole();
+        }
+
+        public DataTable loadStatus()
+        {
+            return dal.loadSatus();
+        }
     }
 }

@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="ClosedXML" Version="0.105.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="System.Data" />
 		<Reference Include="System.Windows.Forms" />
 		<Reference Include="System.Xml" />

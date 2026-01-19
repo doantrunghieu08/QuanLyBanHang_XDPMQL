@@ -22,7 +22,7 @@ namespace DAL
                     o.TotalAmount_N01, 
                     o.Address_N01,
                     o.Phone_N01,
-                    
+                    u.UserID_N01,
                     u.Username_N01,  -- Lấy tên người đặt từ bảng User
                     s.StatusName_N01 -- Lấy tên trạng thái từ bảng OrderStatus
                 FROM Orders_N01 o
@@ -94,7 +94,7 @@ namespace DAL
         }
 
   
-        public DataTable SearchOrders(string keyword, DateTime fromDate, DateTime toDate)
+        public DataTable SearchOrders(string keyword)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append(@"
@@ -104,13 +104,12 @@ namespace DAL
                 FROM Orders_N01 o
                 JOIN User_N01 u ON o.UserID_N01 = u.UserID_N01
                 JOIN OrderStatus_N01 s ON o.StatusID_N01 = s.StatusID_N01
-                WHERE o.OrderDate_N01 BETWEEN @FromDate AND @ToDate");
+                ");
 
             List<SqlParameter> para = new List<SqlParameter>();
 
           
-            para.Add(new SqlParameter("@FromDate", fromDate.Date));
-            para.Add(new SqlParameter("@ToDate", toDate.Date.AddDays(1).AddTicks(-1)));
+           
 
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -135,5 +134,7 @@ namespace DAL
             }
             return 0;
         }
+
+        
     }
 }

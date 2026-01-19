@@ -154,5 +154,14 @@ namespace BUS
         }
 
         #endregion
+        public DataTable loadTTThanhToan()
+        {
+            return dal.loadTrangThaiThanhToan();
+        }
+
+        public DataTable loadData()
+        {
+            return dal.GetAllPayments();
+        }
     }
 }
