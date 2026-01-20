@@ -54,7 +54,8 @@
             this.dgvTKThanhToan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTKThanhToan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgvTKThanhToan, 2);
-            this.dgvTKThanhToan.Location = new System.Drawing.Point(3, 174);
+            this.dgvTKThanhToan.Location = new System.Drawing.Point(4, 214);
+            this.dgvTKThanhToan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTKThanhToan.Name = "dgvTKThanhToan";
             this.dgvTKThanhToan.RowHeadersWidth = 51;
             this.dgvTKThanhToan.Size = new System.Drawing.Size(794, 289);
@@ -73,6 +74,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dgvTKThanhToan, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, -1);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.25807F));
@@ -101,7 +103,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
-            this.panel2.Location = new System.Drawing.Point(3, 116);
+            this.panel2.Location = new System.Drawing.Point(4, 143);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(794, 52);
             this.panel2.TabIndex = 2;
@@ -119,7 +122,8 @@
             this.tableLayoutPanel2.Controls.Add(this.btnThoat, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnXuatPdf, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnXuatExcel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -129,7 +133,8 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThoat.Location = new System.Drawing.Point(653, 13);
+            this.btnThoat.Location = new System.Drawing.Point(872, 15);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 4;
@@ -139,7 +144,8 @@
             // btnXuatPdf
             // 
             this.btnXuatPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXuatPdf.Location = new System.Drawing.Point(258, 13);
+            this.btnXuatPdf.Location = new System.Drawing.Point(344, 15);
+            this.btnXuatPdf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXuatPdf.Name = "btnXuatPdf";
             this.btnXuatPdf.Size = new System.Drawing.Size(75, 23);
             this.btnXuatPdf.TabIndex = 2;
@@ -150,7 +156,8 @@
             // btnXuatExcel
             // 
             this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXuatExcel.Location = new System.Drawing.Point(61, 13);
+            this.btnXuatExcel.Location = new System.Drawing.Point(81, 15);
+            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
             this.btnXuatExcel.TabIndex = 1;
@@ -164,14 +171,16 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.txtTuKhoa);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(3, 58);
+            this.panel1.Location = new System.Drawing.Point(4, 72);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 52);
             this.panel1.TabIndex = 1;
             // 
             // txtTuKhoa
             // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(298, 16);
+            this.txtTuKhoa.Location = new System.Drawing.Point(397, 20);
+            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(236, 20);
             this.txtTuKhoa.TabIndex = 5;
@@ -193,6 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 465);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormTimKiemThanhToan";
             this.Text = "FormTimKiemThanhToan";
             this.Load += new System.EventHandler(this.FormTimKiemThanhToan_Load);

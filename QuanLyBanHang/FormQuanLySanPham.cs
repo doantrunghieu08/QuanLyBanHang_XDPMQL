@@ -1,7 +1,4 @@
-﻿using BUS;
-using DTO;
-using QuanLyThuVien;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,31 +70,6 @@ namespace QuanLyBanHang
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                string maSanPham = txtMaSanPham.Text;
-                sanPham_BUS.DeleteSanPham(maSanPham);
-                MessageBox.Show("Xóa thành công");
-                loadData();
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            ClassExcel excel = new ClassExcel();
-            excel.XuatExcel(dgvSanPham, "QuanLySanPham.xlsx");
         }
     }
 }

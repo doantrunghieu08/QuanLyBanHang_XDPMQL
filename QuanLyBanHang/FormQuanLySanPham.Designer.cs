@@ -37,7 +37,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txttimkiem = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnChonAnh = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txttimkiem, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dgvSanPham, 1, 2);
@@ -206,7 +206,7 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Tìm Kiếm:";
             // 
-            // textBox2
+            // txttimkiem
             // 
             this.textBox2.Location = new System.Drawing.Point(598, 48);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -387,40 +387,6 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Ảnh Sản Phẩm:";
             // 
-            // dgvSanPham
-            // 
-            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this.dgvSanPham, 2);
-            this.dgvSanPham.Location = new System.Drawing.Point(598, 100);
-            this.dgvSanPham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.RowHeadersWidth = 51;
-            this.tableLayoutPanel1.SetRowSpan(this.dgvSanPham, 2);
-            this.dgvSanPham.Size = new System.Drawing.Size(654, 829);
-            this.dgvSanPham.TabIndex = 1;
-            // 
-            // txtMaSanPham
-            // 
-            this.txtMaSanPham.Location = new System.Drawing.Point(120, 34);
-            this.txtMaSanPham.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaSanPham.Name = "txtMaSanPham";
-            this.txtMaSanPham.Size = new System.Drawing.Size(213, 22);
-            this.txtMaSanPham.TabIndex = 36;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(117, 12);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 20);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "Mã Sản Phẩm:";
-            // 
             // FormQuanLySanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -450,7 +416,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txttimkiem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button6;
