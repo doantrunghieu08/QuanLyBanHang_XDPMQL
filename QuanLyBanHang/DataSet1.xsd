@@ -698,6 +698,34 @@ FROM            Payments_N01 INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThongKeDoanhThuTableAdapter" GeneratorDataComponentClassName="ThongKeDoanhThuTableAdapter" Name="ThongKeDoanhThu" UserDataComponentName="ThongKeDoanhThuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QuanLyBanHang_N01ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        c.CategoryID_N01, c.CategoryName_N01, p.ProductID_N01, p.ProductName_N01, p.Price_N01, p.StockQuantity_N01, ISNULL(SUM(d.Quantity_N01), 0) AS SoLuongDaBan, ISNULL(SUM(d.Quantity_N01 * d.UnitPrice_N01), 0) 
+                         AS SoTienThuDuoc
+FROM            Categories_N01 AS c INNER JOIN
+                         Products_N01 AS p ON c.CategoryID_N01 = p.CategoryID_N01 LEFT OUTER JOIN
+                         OrderItems_N01 AS d ON p.ProductID_N01 = d.ProductID_N01
+GROUP BY c.CategoryID_N01, c.CategoryName_N01, p.ProductID_N01, p.ProductName_N01, p.Price_N01, p.StockQuantity_N01</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CategoryID_N01" DataSetColumn="CategoryID_N01" />
+              <Mapping SourceColumn="CategoryName_N01" DataSetColumn="CategoryName_N01" />
+              <Mapping SourceColumn="ProductID_N01" DataSetColumn="ProductID_N01" />
+              <Mapping SourceColumn="ProductName_N01" DataSetColumn="ProductName_N01" />
+              <Mapping SourceColumn="Price_N01" DataSetColumn="Price_N01" />
+              <Mapping SourceColumn="StockQuantity_N01" DataSetColumn="StockQuantity_N01" />
+              <Mapping SourceColumn="SoLuongDaBan" DataSetColumn="SoLuongDaBan" />
+              <Mapping SourceColumn="SoTienThuDuoc" DataSetColumn="SoTienThuDuoc" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1094,6 +1122,44 @@ FROM            Payments_N01 INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ThongKeDoanhThu" msprop:Generator_RowEvHandlerName="ThongKeDoanhThuRowChangeEventHandler" msprop:Generator_RowDeletedName="ThongKeDoanhThuRowDeleted" msprop:Generator_RowDeletingName="ThongKeDoanhThuRowDeleting" msprop:Generator_RowEvArgName="ThongKeDoanhThuRowChangeEvent" msprop:Generator_TablePropName="ThongKeDoanhThu" msprop:Generator_RowChangedName="ThongKeDoanhThuRowChanged" msprop:Generator_RowChangingName="ThongKeDoanhThuRowChanging" msprop:Generator_TableClassName="ThongKeDoanhThuDataTable" msprop:Generator_RowClassName="ThongKeDoanhThuRow" msprop:Generator_TableVarName="tableThongKeDoanhThu" msprop:Generator_UserTableName="ThongKeDoanhThu">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CategoryID_N01" msprop:Generator_ColumnPropNameInRow="CategoryID_N01" msprop:Generator_ColumnPropNameInTable="CategoryID_N01Column" msprop:Generator_ColumnVarNameInTable="columnCategoryID_N01" msprop:Generator_UserColumnName="CategoryID_N01">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CategoryName_N01" msprop:Generator_ColumnPropNameInRow="CategoryName_N01" msprop:Generator_ColumnPropNameInTable="CategoryName_N01Column" msprop:Generator_ColumnVarNameInTable="columnCategoryName_N01" msprop:Generator_UserColumnName="CategoryName_N01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductID_N01" msprop:Generator_ColumnPropNameInRow="ProductID_N01" msprop:Generator_ColumnPropNameInTable="ProductID_N01Column" msprop:Generator_ColumnVarNameInTable="columnProductID_N01" msprop:Generator_UserColumnName="ProductID_N01">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductName_N01" msprop:Generator_ColumnPropNameInRow="ProductName_N01" msprop:Generator_ColumnPropNameInTable="ProductName_N01Column" msprop:Generator_ColumnVarNameInTable="columnProductName_N01" msprop:Generator_UserColumnName="ProductName_N01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Price_N01" msprop:Generator_ColumnPropNameInRow="Price_N01" msprop:Generator_ColumnPropNameInTable="Price_N01Column" msprop:Generator_ColumnVarNameInTable="columnPrice_N01" msprop:Generator_UserColumnName="Price_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="StockQuantity_N01" msprop:Generator_ColumnPropNameInRow="StockQuantity_N01" msprop:Generator_ColumnPropNameInTable="StockQuantity_N01Column" msprop:Generator_ColumnVarNameInTable="columnStockQuantity_N01" msprop:Generator_UserColumnName="StockQuantity_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="SoLuongDaBan" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SoLuongDaBan" msprop:Generator_ColumnPropNameInTable="SoLuongDaBanColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuongDaBan" msprop:Generator_UserColumnName="SoLuongDaBan" type="xs:int" minOccurs="0" />
+              <xs:element name="SoTienThuDuoc" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SoTienThuDuoc" msprop:Generator_ColumnPropNameInTable="SoTienThuDuocColumn" msprop:Generator_ColumnVarNameInTable="columnSoTienThuDuoc" msprop:Generator_UserColumnName="SoTienThuDuoc" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1140,6 +1206,11 @@ FROM            Payments_N01 INNER JOIN
     <xs:unique name="ThanhToan_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ThanhToan" />
       <xs:field xpath="mstns:PaymentID_N01" />
+    </xs:unique>
+    <xs:unique name="ThongKeDoanhThu_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ThongKeDoanhThu" />
+      <xs:field xpath="mstns:CategoryID_N01" />
+      <xs:field xpath="mstns:ProductID_N01" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

@@ -35,5 +35,9 @@ namespace BUS
         {
             return sanPham_DAL.FindSanPham(tuKhoa);
         }
+        public DataTable thongKeSanPham(string maDanhMuc)
+        {
+            return sanPham_DAL.LayDuLieuBaoCao_TheoDanhMuc(maDanhMuc);
+        }
     }
 }

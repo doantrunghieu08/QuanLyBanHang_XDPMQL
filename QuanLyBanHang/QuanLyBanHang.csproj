@@ -205,6 +205,9 @@
     <EmbeddedResource Include="FormQuanLyThanhToan.resx">
       <DependentUpon>FormQuanLyThanhToan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThongKeSanPham.resx">
+      <DependentUpon>FormThongKeSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTimKiemDanhMuc.resx">
       <DependentUpon>FormTimKiemDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +239,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="rptThanhToan.rdlc" />
+    <EmbeddedResource Include="thongKeSanPham.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
