@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDanhMuc = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -41,14 +41,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rtbGhiChu = new System.Windows.Forms.RichTextBox();
+            this.txtTenDanhMuc = new System.Windows.Forms.TextBox();
+            this.txtMaDanhMuc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMuc)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,23 +67,24 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.dgvDanhMuc);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 395);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1332, 314);
             this.panel4.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgvDanhMuc
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1332, 314);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhMuc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.dgvDanhMuc.Name = "dgvDanhMuc";
+            this.dgvDanhMuc.RowHeadersWidth = 51;
+            this.dgvDanhMuc.RowTemplate.Height = 24;
+            this.dgvDanhMuc.Size = new System.Drawing.Size(1332, 314);
+            this.dgvDanhMuc.TabIndex = 0;
+            this.dgvDanhMuc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellContentClick);
             // 
             // panel3
             // 
@@ -91,9 +92,9 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.richTextBox1);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.rtbGhiChu);
+            this.panel3.Controls.Add(this.txtTenDanhMuc);
+            this.panel3.Controls.Add(this.txtMaDanhMuc);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 99);
             this.panel3.Name = "panel3";
@@ -131,6 +132,7 @@
             this.button5.TabIndex = 11;
             this.button5.Text = "Thoát";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -152,6 +154,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Xuất excel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -162,6 +165,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -172,6 +176,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
@@ -200,27 +205,27 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Mã danh mục";
             // 
-            // richTextBox1
+            // rtbGhiChu
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(592, 127);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(237, 96);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.rtbGhiChu.Location = new System.Drawing.Point(592, 127);
+            this.rtbGhiChu.Name = "rtbGhiChu";
+            this.rtbGhiChu.Size = new System.Drawing.Size(237, 96);
+            this.rtbGhiChu.TabIndex = 2;
+            this.rtbGhiChu.Text = "";
             // 
-            // textBox2
+            // txtTenDanhMuc
             // 
-            this.textBox2.Location = new System.Drawing.Point(592, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtTenDanhMuc.Location = new System.Drawing.Point(592, 89);
+            this.txtTenDanhMuc.Name = "txtTenDanhMuc";
+            this.txtTenDanhMuc.Size = new System.Drawing.Size(237, 22);
+            this.txtTenDanhMuc.TabIndex = 1;
             // 
-            // textBox1
+            // txtMaDanhMuc
             // 
-            this.textBox1.Location = new System.Drawing.Point(592, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 22);
-            this.textBox1.TabIndex = 0;
+            this.txtMaDanhMuc.Location = new System.Drawing.Point(592, 45);
+            this.txtMaDanhMuc.Name = "txtMaDanhMuc";
+            this.txtMaDanhMuc.Size = new System.Drawing.Size(237, 22);
+            this.txtMaDanhMuc.TabIndex = 0;
             // 
             // panel2
             // 
@@ -249,9 +254,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormQuanLyDanhMuc";
             this.Text = "FormQuanLyDanhMuc";
+            this.Load += new System.EventHandler(this.FormQuanLyDanhMuc_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMuc)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -264,11 +270,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaDanhMuc;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtTenDanhMuc;
+        private System.Windows.Forms.RichTextBox rtbGhiChu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -280,6 +286,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDanhMuc;
     }
 }
