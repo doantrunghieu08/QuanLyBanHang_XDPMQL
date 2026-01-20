@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace QuanLyBanHang
 {
     public partial class FormTimKiemNguoiDung : Form
     {
+        NguoiDung_BUS nguoiDung_BUS = new NguoiDung_BUS();
         public FormTimKiemNguoiDung()
         {
             InitializeComponent();
+        }
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnXuatPdf_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

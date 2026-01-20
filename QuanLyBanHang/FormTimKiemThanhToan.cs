@@ -16,5 +16,15 @@ namespace QuanLyBanHang
         {
             InitializeComponent();
         }
+
+        private void FormTimKiemThanhToan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXuatPdf_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

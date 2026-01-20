@@ -54,7 +54,7 @@
             this.dgvTKSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dgvTKSanPham, 2);
             this.dgvTKSanPham.Location = new System.Drawing.Point(4, 214);
-            this.dgvTKSanPham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTKSanPham.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTKSanPham.Name = "dgvTKSanPham";
             this.dgvTKSanPham.RowHeadersWidth = 51;
             this.dgvTKSanPham.Size = new System.Drawing.Size(1059, 356);
@@ -73,7 +73,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dgvTKSanPham, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, -1);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.25807F));
@@ -105,7 +105,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Location = new System.Drawing.Point(4, 143);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1059, 63);
             this.panel2.TabIndex = 2;
@@ -124,7 +124,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnXuatPdf, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnXuatExcel, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -135,7 +135,7 @@
             // 
             this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThoat.Location = new System.Drawing.Point(872, 15);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
             this.btnThoat.TabIndex = 4;
@@ -146,23 +146,25 @@
             // 
             this.btnXuatPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXuatPdf.Location = new System.Drawing.Point(344, 15);
-            this.btnXuatPdf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXuatPdf.Margin = new System.Windows.Forms.Padding(4);
             this.btnXuatPdf.Name = "btnXuatPdf";
             this.btnXuatPdf.Size = new System.Drawing.Size(100, 28);
             this.btnXuatPdf.TabIndex = 2;
             this.btnXuatPdf.Text = "Xuất Pdf";
             this.btnXuatPdf.UseVisualStyleBackColor = true;
+            this.btnXuatPdf.Click += new System.EventHandler(this.btnXuatPdf_Click);
             // 
             // btnXuatExcel
             // 
             this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXuatExcel.Location = new System.Drawing.Point(81, 15);
-            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(100, 28);
             this.btnXuatExcel.TabIndex = 1;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // panel1
             // 
@@ -171,7 +173,7 @@
             this.panel1.Controls.Add(this.txtTuKhoa);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(4, 72);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 63);
             this.panel1.TabIndex = 1;
@@ -179,10 +181,11 @@
             // txtTuKhoa
             // 
             this.txtTuKhoa.Location = new System.Drawing.Point(397, 20);
-            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(313, 22);
             this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // label2
             // 
@@ -199,7 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 572);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTimKiemSanPham";
             this.Text = "FormTimKiemSanPham";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKSanPham)).EndInit();
