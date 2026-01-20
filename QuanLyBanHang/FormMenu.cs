@@ -98,22 +98,11 @@ namespace QuanLyBanHang
                     FormThongKeSanPham formThongKeSanPham = new FormThongKeSanPham();
                     form = formThongKeSanPham;
                     break;
-                case "sảnPhẩmItem":
-                    FormTimKiemSanPham formTimKiemSanPham = new FormTimKiemSanPham();
-                    form = formTimKiemSanPham;
+                case "thongKeThanhToanItem":
+                    FormThongKeThanhToan formThongKeThanhToan = new FormThongKeThanhToan();
+                    form = formThongKeThanhToan;
                     break;
-                case "đơnHàngItem":
-                    FormTimKiemDonHang formTimKiemDonHang = new FormTimKiemDonHang();
-                    form = formTimKiemDonHang;
-                    break;
-                case "ngườiDùngItem":
-                    FormTimKiemNguoiDung formTimKiemNguoiDung = new FormTimKiemNguoiDung();
-                    form = formTimKiemNguoiDung;
-                    break;
-                case "thanhToánItem":
-                    FormTimKiemThanhToan formTimKiemThanhToan = new FormTimKiemThanhToan();
-                    form = formTimKiemThanhToan;
-                    break;
+                
             }
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;

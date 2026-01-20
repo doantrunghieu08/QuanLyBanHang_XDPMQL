@@ -194,5 +194,39 @@ namespace DAL
 
             return db.LoadData(sql);
         }
+        public DataTable LayChiTietThanhToan_TheoPhuongThuc(string maPhuongThuc)
+        {
+            string sql = @"
+        SELECT 
+            -- 1. Thông tin Phương thức (Dùng cho Header báo cáo)
+            m.MethodID_N01,
+            m.MethodName_N01,
+
+            -- 2. Thông tin Chi tiết giao dịch (Dùng cho Table báo cáo)
+            p.PaymentID_N01,
+            p.OrderID_N01,
+            p.Amount_N01,
+            p.PaymentDate_N01,
+            
+            -- 3. Tên trạng thái (Thay vì hiện mã số khó hiểu)
+            s.StatusName_N01
+
+        FROM PaymentMethods_N01 m
+        -- Join với bảng Payments để lấy các giao dịch
+        JOIN Payments_N01 p ON m.MethodID_N01 = p.MethodID_N01
+        -- Join với bảng PaymentStatus để lấy tên trạng thái (Thành công/Thất bại...)
+        LEFT JOIN PaymentStatus_N01 s ON p.StatusID_N01 = s.StatusID_N01
+
+        WHERE m.MethodID_N01 = @MethodID
+
+        -- Sắp xếp: Giao dịch mới nhất lên đầu
+        ORDER BY p.PaymentDate_N01 DESC";
+
+            SqlParameter[] para = {
+        new SqlParameter("@MethodID", maPhuongThuc)
+    };
+
+            return db.LoadData(sql, para);
+        }
     }
 }

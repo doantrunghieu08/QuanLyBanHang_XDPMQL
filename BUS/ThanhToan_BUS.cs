@@ -163,5 +163,10 @@ namespace BUS
         {
             return dal.GetAllPayments();
         }
+
+        public DataTable inThongKe(string maPhuongThuc)
+        {
+            return dal.LayChiTietThanhToan_TheoPhuongThuc(maPhuongThuc);
+        }
     }
 }
