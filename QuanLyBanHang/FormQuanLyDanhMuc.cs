@@ -12,6 +12,7 @@ namespace QuanLyBanHang
 {
     public partial class FormQuanLyDanhMuc : Form
     {
+        DanhMuc_BUS danhMuc_BUS = new DanhMuc_BUS();
         public FormQuanLyDanhMuc()
         {
             InitializeComponent();

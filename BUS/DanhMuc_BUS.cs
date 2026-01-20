@@ -28,7 +28,7 @@ namespace BUS
         {
             danhmuc_DAL.DeleteDanhMuc(CategoryId);
         }
-        public void UpdateDocGia(DanhMuc_DTO ob, string CategoryId)
+        public void UpdateDanhMuc(DanhMuc_DTO ob, string CategoryId)
         {
             danhmuc_DAL.UpdateDanhMuc(ob, CategoryId);
         }

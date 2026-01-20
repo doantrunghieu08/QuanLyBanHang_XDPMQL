@@ -137,6 +137,7 @@
             this.btnXuatPdf.TabIndex = 2;
             this.btnXuatPdf.Text = "Xuất Pdf";
             this.btnXuatPdf.UseVisualStyleBackColor = true;
+            this.btnXuatPdf.Click += new System.EventHandler(this.btnXuatPdf_Click);
             // 
             // btnXuatExcel
             // 
@@ -148,6 +149,7 @@
             this.btnXuatExcel.TabIndex = 1;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // dgvTKDanhMuc
             // 
@@ -183,6 +185,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(313, 22);
             this.txtTuKhoa.TabIndex = 5;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // label2
             // 

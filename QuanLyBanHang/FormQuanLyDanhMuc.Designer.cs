@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDanhMuc = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,9 +91,9 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.richTextBox1);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.rtbGhiChu);
+            this.panel3.Controls.Add(this.txtTenDanhMuc);
+            this.panel3.Controls.Add(this.txtMaDanhMuc);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 99);
             this.panel3.Name = "panel3";
@@ -152,6 +152,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Xuất excel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -162,6 +163,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -172,6 +174,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
@@ -200,20 +203,20 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Mã danh mục";
             // 
-            // richTextBox1
+            // rtbGhiChu
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(592, 127);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(237, 96);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.rtbGhiChu.Location = new System.Drawing.Point(592, 127);
+            this.rtbGhiChu.Name = "rtbGhiChu";
+            this.rtbGhiChu.Size = new System.Drawing.Size(237, 96);
+            this.rtbGhiChu.TabIndex = 2;
+            this.rtbGhiChu.Text = "";
             // 
-            // textBox2
+            // txtTenDanhMuc
             // 
-            this.textBox2.Location = new System.Drawing.Point(592, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtTenDanhMuc.Location = new System.Drawing.Point(592, 89);
+            this.txtTenDanhMuc.Name = "txtTenDanhMuc";
+            this.txtTenDanhMuc.Size = new System.Drawing.Size(237, 22);
+            this.txtTenDanhMuc.TabIndex = 1;
             // 
             // textBox1
             // 
@@ -222,14 +225,15 @@
             this.textBox1.Size = new System.Drawing.Size(237, 22);
             this.textBox1.TabIndex = 0;
             // 
-            // panel2
+            // button5
             // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1332, 99);
-            this.panel2.TabIndex = 2;
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button5.Location = new System.Drawing.Point(1158, 5);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(79, 33);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Thoát";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -249,6 +253,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormQuanLyDanhMuc";
             this.Text = "FormQuanLyDanhMuc";
+            this.Load += new System.EventHandler(this.FormQuanLyDanhMuc_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -264,11 +269,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaDanhMuc;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtTenDanhMuc;
+        private System.Windows.Forms.RichTextBox rtbGhiChu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -280,6 +285,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDanhMuc;
     }
 }
