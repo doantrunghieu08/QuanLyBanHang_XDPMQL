@@ -106,5 +106,51 @@ namespace DAL
         {
             return db.LoadData("SELECT Status_N01 FROM dbo.User_N01");
         }
+
+        public DataTable SearchUsers(string keyword)
+        {
+            // Tạo từ khóa tìm kiếm gần đúng (ví dụ: "%abc%")
+            string searchKey = "%" + keyword + "%";
+
+            string sql = @"
+        SELECT 
+            u.UserID_N01, 
+            u.Username_N01, 
+            u.Email_N01, 
+            u.Password_N01, 
+            u.Phone_N01, 
+            u.Address_N01, 
+            u.Status_N01,
+            r.RoleName_N01
+        FROM User_N01 u
+        LEFT JOIN Roles_N01 r ON u.RoleID_N01 = r.RoleID_N01
+        WHERE 
+            -- 1. Tìm theo Mã người dùng (Ép kiểu sang chuỗi để tìm kiếm số)
+            CAST(u.UserID_N01 AS NVARCHAR(50)) LIKE @kw 
+            
+            -- 2. Tìm theo Tên đăng nhập
+            OR u.Username_N01 LIKE @kw 
+            
+            -- 3. Tìm theo Email
+            OR u.Email_N01 LIKE @kw 
+            
+            -- 4. Tìm theo SĐT
+            OR u.Phone_N01 LIKE @kw 
+            
+            -- 5. Tìm theo Địa chỉ
+            OR u.Address_N01 LIKE @kw 
+            
+            -- 6. Tìm theo Trạng thái (Active/Blocked)
+            OR u.Status_N01 LIKE @kw
+            
+            -- 7. Tìm theo Tên Quyền (Admin/User...)
+            OR r.RoleName_N01 LIKE @kw";
+
+            SqlParameter[] para = {
+        new SqlParameter("@kw", searchKey)
+    };
+
+            return db.LoadData(sql, para);
+        }
     }
 }

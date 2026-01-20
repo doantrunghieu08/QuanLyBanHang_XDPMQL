@@ -20,12 +20,12 @@ namespace BUS
         /// <summary>
         /// Tìm kiếm thanh toán theo nhiều điều kiện.
         /// </summary>
-        public List<ThanhToan_DTO> TimKiemThanhToan(string orderIdKeyword, string methodId, string statusId)
+        public List<ThanhToan_DTO> TimKiemThanhToan(string kw)
         {
             try
             {
                 // Gọi xuống DAL
-                return dal.SearchPayments(orderIdKeyword, methodId, statusId);
+                return dal.SearchPayments_AllFields(kw);
             }
             catch (Exception)
             {

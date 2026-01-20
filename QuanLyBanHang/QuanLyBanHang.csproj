@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExcel.cs" />
+    <Compile Include="ClassPDF.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +147,12 @@
     </Compile>
     <Compile Include="FormQuanLyThanhToan.Designer.cs">
       <DependentUpon>FormQuanLyThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThongKeSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongKeSanPham.Designer.cs">
+      <DependentUpon>FormThongKeSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTimKiemDanhMuc.cs">
       <SubType>Form</SubType>
@@ -198,6 +205,9 @@
     <EmbeddedResource Include="FormQuanLyThanhToan.resx">
       <DependentUpon>FormQuanLyThanhToan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThongKeSanPham.resx">
+      <DependentUpon>FormThongKeSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTimKiemDanhMuc.resx">
       <DependentUpon>FormTimKiemDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,21 +232,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="rptDanhMuc.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDonHang.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptHoaDon.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptNguoiDung.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptSanPham.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="rptHoaDon.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -271,13 +267,6 @@
       <Project>{df279f74-f966-41c9-bcec-825e2e5ea81b}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
-    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

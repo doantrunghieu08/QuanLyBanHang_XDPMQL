@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
+using QuanLyThuVien;
 
 namespace QuanLyBanHang
 {
@@ -17,16 +19,6 @@ namespace QuanLyBanHang
         public FormTimKiemNguoiDung()
         {
             InitializeComponent();
-        }
-
-        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnXuatPdf_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

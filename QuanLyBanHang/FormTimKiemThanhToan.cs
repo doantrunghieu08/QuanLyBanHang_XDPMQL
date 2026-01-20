@@ -7,24 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
+using QuanLyThuVien;
 
 namespace QuanLyBanHang
 {
     public partial class FormTimKiemThanhToan : Form
     {
+        ThanhToan_BUS thanhToan_BUS = new ThanhToan_BUS();
         public FormTimKiemThanhToan()
         {
             InitializeComponent();
-        }
-
-        private void FormTimKiemThanhToan_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnXuatPdf_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

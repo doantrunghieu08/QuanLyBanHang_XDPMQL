@@ -77,6 +77,7 @@ namespace QuanLyBanHang
                     break;
             }
             form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
             form.Show();
             form.BringToFront();
 
@@ -85,6 +86,39 @@ namespace QuanLyBanHang
         private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void thốngKêToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+            Form form = new Form();
+            switch (e.ClickedItem.Name)
+            {
+                case "doanhThuItem":
+                    FormThongKeSanPham formThongKeSanPham = new FormThongKeSanPham();
+                    form = formThongKeSanPham;
+                    break;
+                case "sảnPhẩmItem":
+                    FormTimKiemSanPham formTimKiemSanPham = new FormTimKiemSanPham();
+                    form = formTimKiemSanPham;
+                    break;
+                case "đơnHàngItem":
+                    FormTimKiemDonHang formTimKiemDonHang = new FormTimKiemDonHang();
+                    form = formTimKiemDonHang;
+                    break;
+                case "ngườiDùngItem":
+                    FormTimKiemNguoiDung formTimKiemNguoiDung = new FormTimKiemNguoiDung();
+                    form = formTimKiemNguoiDung;
+                    break;
+                case "thanhToánItem":
+                    FormTimKiemThanhToan formTimKiemThanhToan = new FormTimKiemThanhToan();
+                    form = formTimKiemThanhToan;
+                    break;
+            }
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
+            form.BringToFront();
         }
     }
 }

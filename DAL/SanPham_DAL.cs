@@ -122,5 +122,50 @@ namespace DAL
 
             return LoadData(sql, parameters);
         }
+
+        public DataTable LayDuLieuBaoCao_TheoDanhMuc(string maDanhMuc)
+        {
+            // Cần lấy đủ các cột trùng tên với các textbox trong Report
+            string sql = @"
+        SELECT 
+            -- Phần thông tin danh mục (Header của báo cáo)
+            c.CategoryID_N01, 
+            c.CategoryName_N01,
+            
+            -- Phần danh sách sản phẩm (Table chi tiết)
+            p.ProductID_N01, 
+            p.ProductName_N01, 
+            p.Price_N01, 
+            p.StockQuantity_N01,
+            
+            -- Tính tổng số lượng bán (nếu null thì là 0)
+            ISNULL(SUM(d.Quantity_N01), 0) AS SoLuongDaBan,
+            
+            -- Tính tổng tiền thu được (Số lượng * Đơn giá lúc bán)
+            ISNULL(SUM(d.Quantity_N01 * d.UnitPrice_N01), 0) AS SoTienThuDuoc
+
+        FROM Categories_N01 c
+        -- Join để lấy sản phẩm thuộc danh mục
+        INNER JOIN Products_N01 p ON c.CategoryID_N01 = p.CategoryID_N01
+        -- Left Join để lấy dữ liệu bán hàng (dùng LEFT để SP chưa bán vẫn hiện ra)
+        LEFT JOIN OrderItems_N01 d ON p.ProductID_N01 = d.ProductID_N01
+        
+        WHERE c.CategoryID_N01 = @CateID
+
+        -- Group By toàn bộ các cột không tính toán
+        GROUP BY 
+            c.CategoryID_N01, 
+            c.CategoryName_N01,
+            p.ProductID_N01, 
+            p.ProductName_N01, 
+            p.Price_N01, 
+            p.StockQuantity_N01";
+
+            SqlParameter[] para = {
+        new SqlParameter("@CateID", maDanhMuc)
+    };
+
+            return LoadData(sql,para);
+        }
     }
 }
