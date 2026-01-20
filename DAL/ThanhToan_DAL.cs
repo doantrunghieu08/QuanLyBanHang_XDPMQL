@@ -23,46 +23,44 @@ namespace DAL
         }
 
         // 3. Tìm kiếm thanh toán (Lấy danh sách)
-        public List<ThanhToan_DTO> SearchPayments(string orderIdKeyword, string methodId, string statusId)
+        public List<ThanhToan_DTO> SearchPayments_AllFields(string keyword)
         {
             List<ThanhToan_DTO> list = new List<ThanhToan_DTO>();
+            string searchKey = "%" + keyword + "%"; // Chuẩn bị từ khóa cho LIKE
 
             string sql = @"
-                SELECT 
-                    p.PaymentID_N01,
-                    p.OrderID_N01, 
-                    p.Amount_N01, 
-                    p.PaymentDate_N01,
-                    p.MethodID_N01, 
-                    m.MethodName_N01,
-                    p.StatusID_N01, 
-                    ps.StatusName_N01
-                FROM Payments_N01 p
-                LEFT JOIN PaymentMethods_N01 m ON p.MethodID_N01 = m.MethodID_N01
-                LEFT JOIN PaymentStatus_N01 ps ON p.StatusID_N01 = ps.StatusID_N01
-                WHERE 1=1";
+        SELECT 
+            p.PaymentID_N01,
+            p.OrderID_N01, 
+            p.Amount_N01, 
+            p.PaymentDate_N01,
+            p.MethodID_N01, 
+            m.MethodName_N01,
+            p.StatusID_N01, 
+            ps.StatusName_N01
+        FROM Payments_N01 p
+        LEFT JOIN PaymentMethods_N01 m ON p.MethodID_N01 = m.MethodID_N01
+        LEFT JOIN PaymentStatus_N01 ps ON p.StatusID_N01 = ps.StatusID_N01
+        WHERE 
+            -- 1. Tìm theo Mã thanh toán
+            p.PaymentID_N01 LIKE @kw
+            
+            -- 2. Tìm theo Mã đơn hàng
+            OR p.OrderID_N01 LIKE @kw
+            
+            -- 3. Tìm theo Tên phương thức (Ví dụ: 'Momo', 'Tiền mặt')
+            OR m.MethodName_N01 LIKE @kw
+            
+            -- 4. Tìm theo Tên trạng thái (Ví dụ: 'Thành công')
+            OR ps.StatusName_N01 LIKE @kw
+            
+            -- 5. Tìm theo Số tiền (Phải ép kiểu số sang chuỗi mới so sánh được)
+            OR CAST(p.Amount_N01 AS NVARCHAR(50)) LIKE @kw
+            
+            -- 6. (Tùy chọn) Tìm theo ngày tháng dd/MM/yyyy
+            -- OR CONVERT(VARCHAR(10), p.PaymentDate_N01, 103) LIKE @kw
+    ";
 
-            List<SqlParameter> pList = new List<SqlParameter>();
-
-            if (!string.IsNullOrEmpty(orderIdKeyword))
-            {
-                sql += " AND p.OrderID_N01 LIKE @Oid";
-                pList.Add(new SqlParameter("@Oid", "%" + orderIdKeyword + "%"));
-            }
-
-            if (!string.IsNullOrEmpty(methodId))
-            {
-                sql += " AND p.MethodID_N01 = @Mid";
-                pList.Add(new SqlParameter("@Mid", methodId));
-            }
-
-            if (!string.IsNullOrEmpty(statusId))
-            {
-                sql += " AND p.StatusID_N01 = @Sid";
-                pList.Add(new SqlParameter("@Sid", statusId));
-            }
-
-            // Dùng using để đảm bảo đóng kết nối an toàn
             using (SqlConnection conn = (SqlConnection)db.GetConnection())
             {
                 try
@@ -70,7 +68,8 @@ namespace DAL
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        if (pList.Count > 0) cmd.Parameters.AddRange(pList.ToArray());
+                        // Chỉ cần 1 tham số duy nhất
+                        cmd.Parameters.Add(new SqlParameter("@kw", searchKey));
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -99,13 +98,13 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Lỗi SearchPayments: " + ex.Message);
+                    Console.WriteLine("Lỗi SearchPayments_AllFields: " + ex.Message);
                 }
             }
             return list;
         }
 
-       
+
         public bool InsertPayment(ThanhToan_DTO p)
         {
             

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using QuanLyThuVien;
 
 namespace QuanLyBanHang
 {
@@ -28,6 +29,8 @@ namespace QuanLyBanHang
             loadTT();
             loadData();
             loadPTTT();
+            dgvQLThanhToan.Columns["MethodID_N01"].Visible = false;
+            dgvQLThanhToan.Columns["StatusID_N01"].Visible = false;
         }
         public void loadTT()
         {
@@ -129,13 +132,126 @@ namespace QuanLyBanHang
                 txtMaDonHang.Text = row.Cells["OrderID_N01"].Value.ToString();
                 txtMaThanhToan.Text = row.Cells["PaymentID_N01"].Value.ToString();
                 dTPNgayThanhToan.Value = Convert.ToDateTime(row.Cells["PaymentDate_N01"].Value);
+                txtTongTien.Text = row.Cells["Amount_N01"].Value.ToString();
 
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 1. Kiểm tra xem người dùng đã chọn hoặc nhập Mã thanh toán chưa
+                if (string.IsNullOrEmpty(txtMaThanhToan.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn giao dịch cần sửa từ danh sách hoặc nhập Mã thanh toán!");
+                    return;
+                }
 
+                // 2. Hỏi xác nhận (Best Practice khi Sửa/Xóa dữ liệu)
+                DialogResult confirm = MessageBox.Show(
+                    "Bạn có chắc chắn muốn cập nhật thông tin cho giao dịch: " + txtMaThanhToan.Text + "?",
+                    "Xác nhận cập nhật",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.No) return;
+
+                // 3. Tạo đối tượng DTO và gom dữ liệu mới từ giao diện
+                ThanhToan_DTO tt = new ThanhToan_DTO();
+
+                // --- KHÓA CHÍNH (Không được đổi nếu không có logic xử lý riêng) ---
+                tt.PaymentID = txtMaThanhToan.Text.Trim();
+
+                // --- Các thông tin cần cập nhật ---
+                tt.OrderID = txtMaDonHang.Text.Trim();
+                tt.PaymentDate = dTPNgayThanhToan.Value;
+
+                // Ép kiểu số tiền (Nếu nhập chữ sẽ nhảy xuống catch FormatException)
+                tt.Amount = int.Parse(txtTongTien.Text.Trim());
+
+                // Lấy phương thức thanh toán
+                if (cboPTTT.SelectedValue != null)
+                {
+                    tt.MethodID = cboPTTT.SelectedValue.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn Phương thức thanh toán!");
+                    return;
+                }
+
+                // Lấy trạng thái
+                if (cbbTTTT.SelectedValue != null)
+                {
+                    tt.StatusID = cbbTTTT.SelectedValue.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn Trạng thái!");
+                    return;
+                }
+
+                // 4. Gọi xuống BUS để thực hiện Update
+                // (Biến thanhToan_BUS đã được khai báo ở đầu Form)
+                bool ketQua = thanhToan_BUS.CapNhatThanhToan(tt);
+
+                // 5. Kiểm tra kết quả
+                if (ketQua)
+                {
+                    MessageBox.Show("Cập nhật thành công!");
+                    loadData(); // Tải lại DataGridView để thấy dữ liệu mới
+
+                    // (Tùy chọn) Có thể giữ nguyên dữ liệu trên ô nhập để user xem lại, hoặc xóa trắng tùy bạn
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại!\n- Có thể Mã thanh toán không tồn tại.\n- Hoặc số tiền không hợp lệ (phải > 0).");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Lỗi định dạng: Số tiền phải là số nguyên!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem người dùng đã chọn hoặc nhập Mã thanh toán chưa
+            if (string.IsNullOrEmpty(txtMaThanhToan.Text))
+            {
+                MessageBox.Show("Vui lòng chọn giao dịch cần xóa từ danh sách hoặc nhập Mã thanh toán!");
+                return;
+            }
+
+            // 2. Hỏi xác nhận (Best Practice khi Sửa/Xóa dữ liệu)
+            DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn cập nhật thông tin cho giao dịch: " + txtMaThanhToan.Text + "?",
+                "Xác nhận cập nhật",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.No) return;
+            thanhToan_BUS.XoaThanhToan(txtMaThanhToan.Text);
+            
+            loadData();
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            ClassExcel excel = new ClassExcel();
+            excel.XuatExcel(dgvQLThanhToan, "ThanhToan.xlsx");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.No) return;
+            this.Close();
         }
     }
 }

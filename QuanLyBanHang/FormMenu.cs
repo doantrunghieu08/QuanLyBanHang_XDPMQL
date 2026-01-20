@@ -77,6 +77,7 @@ namespace QuanLyBanHang
                     break;
             }
             form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
             form.Show();
             form.BringToFront();
 

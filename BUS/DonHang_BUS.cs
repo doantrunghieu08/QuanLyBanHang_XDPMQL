@@ -59,7 +59,7 @@ namespace BUS
         /// </summary>
         public DataTable TimKiemDonHang(string keyword)
         {
-           
+
 
             return dal.SearchOrders(keyword);
         }
@@ -171,5 +171,12 @@ namespace BUS
         }
 
         #endregion
+
+        public DataTable inHoaDon(string maHoaDon)
+        {
+            return dal.LayDuLieuInHoaDon(maHoaDon);
+        }
+
+       
     }
 }

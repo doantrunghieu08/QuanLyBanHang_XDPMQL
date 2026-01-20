@@ -187,5 +187,16 @@ namespace BUS
         {
             return dal.loadSatus();
         }
+
+        public DataTable TimKiemNguoiDung(string keyword)
+        {
+            // Nếu từ khóa rỗng, trả về danh sách đầy đủ
+            if (string.IsNullOrEmpty(keyword))
+            {
+                return dal.GetAllUsers();
+            }
+
+            return dal.SearchUsers(keyword);
+        }
     }
 }

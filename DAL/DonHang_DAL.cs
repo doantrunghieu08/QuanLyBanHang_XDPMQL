@@ -135,6 +135,45 @@ namespace DAL
             return 0;
         }
 
+        public DataTable LayDuLieuInHoaDon(string maHoaDon)
+        {
+            // Câu lệnh SQL gộp 4 bảng: Orders, User, OrderItems, Products
+            // Lưu ý: Tên cột (AS ...) phải trùng khít với tên Field trong Dataset1
+            string sql = @"
+        SELECT 
+            -- 1. Thông tin chung (Header)
+            u.UserID_N01,
+            u.Username_N01,
+            o.Address_N01,
+            o.Phone_N01,
+            
+            -- 2. Thông tin chi tiết sản phẩm (Detail)
+            d.ProductID_N01,
+            p.ProductName_N01,
+            d.Quantity_N01,
+            d.Unit_N01,
+            d.UnitPrice_N01,
+
+            -- (Tùy chọn) Tính luôn thành tiền từng dòng nếu Report cần
+            (d.Quantity_N01 * d.UnitPrice_N01) AS ThanhTien
+
+        FROM Orders_N01 o
+        -- Join để lấy tên khách
+        INNER JOIN User_N01 u ON o.UserID_N01 = u.UserID_N01
+        -- Join để lấy chi tiết đơn
+        INNER JOIN OrderItems_N01 d ON o.OrderID_N01 = d.OrderID_N01
+        -- Join để lấy tên sản phẩm
+        INNER JOIN Products_N01 p ON d.ProductID_N01 = p.ProductID_N01
         
+        WHERE o.OrderID_N01 = @ID";
+
+            SqlParameter[] para = {
+        new SqlParameter("@ID", maHoaDon)
+    };
+
+            return db.LoadData(sql, para);
+        }
+
+
     }
 }

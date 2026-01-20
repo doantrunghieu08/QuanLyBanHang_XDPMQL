@@ -675,6 +675,29 @@ WHERE  (Orders_N01.UserID_N01 = @userID)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ThanhToanTableAdapter" GeneratorDataComponentClassName="ThanhToanTableAdapter" Name="ThanhToan" UserDataComponentName="ThanhToanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QuanLyBanHang_N01ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Payments_N01.PaymentID_N01, Payments_N01.OrderID_N01, Payments_N01.Amount_N01, PaymentMethods_N01.MethodName_N01, PaymentStatus_N01.StatusName_N01
+FROM            Payments_N01 INNER JOIN
+                         PaymentMethods_N01 ON Payments_N01.MethodID_N01 = PaymentMethods_N01.MethodID_N01 INNER JOIN
+                         PaymentStatus_N01 ON Payments_N01.StatusID_N01 = PaymentStatus_N01.StatusID_N01</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PaymentID_N01" DataSetColumn="PaymentID_N01" />
+              <Mapping SourceColumn="OrderID_N01" DataSetColumn="OrderID_N01" />
+              <Mapping SourceColumn="Amount_N01" DataSetColumn="Amount_N01" />
+              <Mapping SourceColumn="MethodName_N01" DataSetColumn="MethodName_N01" />
+              <Mapping SourceColumn="StatusName_N01" DataSetColumn="StatusName_N01" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -985,54 +1008,89 @@ WHERE  (Orders_N01.UserID_N01 = @userID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HoaDon" msprop:Generator_RowClassName="HoaDonRow" msprop:Generator_RowEvHandlerName="HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoaDonRowDeleted" msprop:Generator_RowDeletingName="HoaDonRowDeleting" msprop:Generator_RowEvArgName="HoaDonRowChangeEvent" msprop:Generator_TablePropName="HoaDon" msprop:Generator_RowChangedName="HoaDonRowChanged" msprop:Generator_UserTableName="HoaDon" msprop:Generator_RowChangingName="HoaDonRowChanging" msprop:Generator_TableClassName="HoaDonDataTable" msprop:Generator_TableVarName="tableHoaDon">
+        <xs:element name="HoaDon" msprop:Generator_RowEvHandlerName="HoaDonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoaDonRowDeleted" msprop:Generator_RowDeletingName="HoaDonRowDeleting" msprop:Generator_RowEvArgName="HoaDonRowChangeEvent" msprop:Generator_TablePropName="HoaDon" msprop:Generator_RowChangedName="HoaDonRowChanged" msprop:Generator_UserTableName="HoaDon" msprop:Generator_RowChangingName="HoaDonRowChanging" msprop:Generator_RowClassName="HoaDonRow" msprop:Generator_TableClassName="HoaDonDataTable" msprop:Generator_TableVarName="tableHoaDon">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="UserID_N01" msprop:Generator_UserColumnName="UserID_N01" msprop:Generator_ColumnPropNameInTable="UserID_N01Column" msprop:Generator_ColumnPropNameInRow="UserID_N01" msprop:Generator_ColumnVarNameInTable="columnUserID_N01">
+              <xs:element name="UserID_N01" msprop:Generator_ColumnPropNameInTable="UserID_N01Column" msprop:Generator_ColumnPropNameInRow="UserID_N01" msprop:Generator_UserColumnName="UserID_N01" msprop:Generator_ColumnVarNameInTable="columnUserID_N01">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Username_N01" msprop:Generator_UserColumnName="Username_N01" msprop:Generator_ColumnPropNameInTable="Username_N01Column" msprop:Generator_ColumnPropNameInRow="Username_N01" msprop:Generator_ColumnVarNameInTable="columnUsername_N01" minOccurs="0">
+              <xs:element name="Username_N01" msprop:Generator_ColumnPropNameInTable="Username_N01Column" msprop:Generator_ColumnPropNameInRow="Username_N01" msprop:Generator_UserColumnName="Username_N01" msprop:Generator_ColumnVarNameInTable="columnUsername_N01" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Phone_N01" msprop:Generator_UserColumnName="Phone_N01" msprop:Generator_ColumnPropNameInTable="Phone_N01Column" msprop:Generator_ColumnPropNameInRow="Phone_N01" msprop:Generator_ColumnVarNameInTable="columnPhone_N01" minOccurs="0">
+              <xs:element name="Phone_N01" msprop:Generator_ColumnPropNameInTable="Phone_N01Column" msprop:Generator_ColumnPropNameInRow="Phone_N01" msprop:Generator_UserColumnName="Phone_N01" msprop:Generator_ColumnVarNameInTable="columnPhone_N01" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Address_N01" msprop:Generator_UserColumnName="Address_N01" msprop:Generator_ColumnPropNameInTable="Address_N01Column" msprop:Generator_ColumnPropNameInRow="Address_N01" msprop:Generator_ColumnVarNameInTable="columnAddress_N01" minOccurs="0">
+              <xs:element name="Address_N01" msprop:Generator_ColumnPropNameInTable="Address_N01Column" msprop:Generator_ColumnPropNameInRow="Address_N01" msprop:Generator_UserColumnName="Address_N01" msprop:Generator_ColumnVarNameInTable="columnAddress_N01" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ProductID_N01" msprop:Generator_UserColumnName="ProductID_N01" msprop:Generator_ColumnPropNameInTable="ProductID_N01Column" msprop:Generator_ColumnPropNameInRow="ProductID_N01" msprop:Generator_ColumnVarNameInTable="columnProductID_N01">
+              <xs:element name="ProductID_N01" msprop:Generator_ColumnPropNameInTable="ProductID_N01Column" msprop:Generator_ColumnPropNameInRow="ProductID_N01" msprop:Generator_UserColumnName="ProductID_N01" msprop:Generator_ColumnVarNameInTable="columnProductID_N01">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ProductName_N01" msprop:Generator_UserColumnName="ProductName_N01" msprop:Generator_ColumnPropNameInTable="ProductName_N01Column" msprop:Generator_ColumnPropNameInRow="ProductName_N01" msprop:Generator_ColumnVarNameInTable="columnProductName_N01" minOccurs="0">
+              <xs:element name="ProductName_N01" msprop:Generator_ColumnPropNameInTable="ProductName_N01Column" msprop:Generator_ColumnPropNameInRow="ProductName_N01" msprop:Generator_UserColumnName="ProductName_N01" msprop:Generator_ColumnVarNameInTable="columnProductName_N01" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Quantity_N01" msprop:Generator_UserColumnName="Quantity_N01" msprop:Generator_ColumnPropNameInTable="Quantity_N01Column" msprop:Generator_ColumnPropNameInRow="Quantity_N01" msprop:Generator_ColumnVarNameInTable="columnQuantity_N01" type="xs:int" minOccurs="0" />
-              <xs:element name="Unit_N01" msprop:Generator_UserColumnName="Unit_N01" msprop:Generator_ColumnPropNameInTable="Unit_N01Column" msprop:Generator_ColumnPropNameInRow="Unit_N01" msprop:Generator_ColumnVarNameInTable="columnUnit_N01" type="xs:int" minOccurs="0" />
-              <xs:element name="UnitPrice_N01" msprop:Generator_UserColumnName="UnitPrice_N01" msprop:Generator_ColumnPropNameInTable="UnitPrice_N01Column" msprop:Generator_ColumnPropNameInRow="UnitPrice_N01" msprop:Generator_ColumnVarNameInTable="columnUnitPrice_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="Quantity_N01" msprop:Generator_ColumnPropNameInTable="Quantity_N01Column" msprop:Generator_ColumnPropNameInRow="Quantity_N01" msprop:Generator_UserColumnName="Quantity_N01" msprop:Generator_ColumnVarNameInTable="columnQuantity_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="Unit_N01" msprop:Generator_ColumnPropNameInTable="Unit_N01Column" msprop:Generator_ColumnPropNameInRow="Unit_N01" msprop:Generator_UserColumnName="Unit_N01" msprop:Generator_ColumnVarNameInTable="columnUnit_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="UnitPrice_N01" msprop:Generator_ColumnPropNameInTable="UnitPrice_N01Column" msprop:Generator_ColumnPropNameInRow="UnitPrice_N01" msprop:Generator_UserColumnName="UnitPrice_N01" msprop:Generator_ColumnVarNameInTable="columnUnitPrice_N01" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ThanhToan" msprop:Generator_RowEvHandlerName="ThanhToanRowChangeEventHandler" msprop:Generator_RowDeletedName="ThanhToanRowDeleted" msprop:Generator_RowDeletingName="ThanhToanRowDeleting" msprop:Generator_RowEvArgName="ThanhToanRowChangeEvent" msprop:Generator_TablePropName="ThanhToan" msprop:Generator_RowChangedName="ThanhToanRowChanged" msprop:Generator_RowChangingName="ThanhToanRowChanging" msprop:Generator_TableClassName="ThanhToanDataTable" msprop:Generator_RowClassName="ThanhToanRow" msprop:Generator_TableVarName="tableThanhToan" msprop:Generator_UserTableName="ThanhToan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PaymentID_N01" msprop:Generator_ColumnPropNameInRow="PaymentID_N01" msprop:Generator_ColumnPropNameInTable="PaymentID_N01Column" msprop:Generator_ColumnVarNameInTable="columnPaymentID_N01" msprop:Generator_UserColumnName="PaymentID_N01">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderID_N01" msprop:Generator_ColumnPropNameInRow="OrderID_N01" msprop:Generator_ColumnPropNameInTable="OrderID_N01Column" msprop:Generator_ColumnVarNameInTable="columnOrderID_N01" msprop:Generator_UserColumnName="OrderID_N01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount_N01" msprop:Generator_ColumnPropNameInRow="Amount_N01" msprop:Generator_ColumnPropNameInTable="Amount_N01Column" msprop:Generator_ColumnVarNameInTable="columnAmount_N01" msprop:Generator_UserColumnName="Amount_N01" type="xs:int" minOccurs="0" />
+              <xs:element name="MethodName_N01" msprop:Generator_ColumnPropNameInRow="MethodName_N01" msprop:Generator_ColumnPropNameInTable="MethodName_N01Column" msprop:Generator_ColumnVarNameInTable="columnMethodName_N01" msprop:Generator_UserColumnName="MethodName_N01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusName_N01" msprop:Generator_ColumnPropNameInRow="StatusName_N01" msprop:Generator_ColumnPropNameInTable="StatusName_N01Column" msprop:Generator_ColumnVarNameInTable="columnStatusName_N01" msprop:Generator_UserColumnName="StatusName_N01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1079,18 +1137,22 @@ WHERE  (Orders_N01.UserID_N01 = @userID)</CommandText>
       <xs:selector xpath=".//mstns:User_N01" />
       <xs:field xpath="mstns:UserID_N01" />
     </xs:unique>
+    <xs:unique name="ThanhToan_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ThanhToan" />
+      <xs:field xpath="mstns:PaymentID_N01" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_OrderItems_N01_Orders_N01" msdata:parent="Orders_N01" msdata:child="OrderItems_N01" msdata:parentkey="OrderID_N01" msdata:childkey="OrderID_N01" msprop:Generator_UserParentTable="Orders_N01" msprop:Generator_UserChildTable="OrderItems_N01" msprop:Generator_RelationVarName="relationFK_OrderItems_N01_Orders_N01" msprop:Generator_ChildPropName="GetOrderItems_N01Rows" msprop:Generator_ParentPropName="Orders_N01Row" msprop:Generator_UserRelationName="FK_OrderItems_N01_Orders_N01" />
-      <msdata:Relationship name="FK_Orders_N01_OrderStatus_N01" msdata:parent="OrderStatus_N01" msdata:child="Orders_N01" msdata:parentkey="StatusID_N01" msdata:childkey="StatusID_N01" msprop:Generator_UserParentTable="OrderStatus_N01" msprop:Generator_UserChildTable="Orders_N01" msprop:Generator_RelationVarName="relationFK_Orders_N01_OrderStatus_N01" msprop:Generator_ChildPropName="GetOrders_N01Rows" msprop:Generator_ParentPropName="OrderStatus_N01Row" msprop:Generator_UserRelationName="FK_Orders_N01_OrderStatus_N01" />
-      <msdata:Relationship name="FK_Payments_N01_Orders_N01" msdata:parent="Orders_N01" msdata:child="Payments_N01" msdata:parentkey="OrderID_N01" msdata:childkey="OrderID_N01" msprop:Generator_UserParentTable="Orders_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_Orders_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_UserRelationName="FK_Payments_N01_Orders_N01" msprop:Generator_ParentPropName="Orders_N01Row" />
-      <msdata:Relationship name="FK_Payments_N01_PaymentMethods_N01" msdata:parent="PaymentMethods_N01" msdata:child="Payments_N01" msdata:parentkey="MethodID_N01" msdata:childkey="MethodID_N01" msprop:Generator_UserParentTable="PaymentMethods_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_PaymentMethods_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_UserRelationName="FK_Payments_N01_PaymentMethods_N01" msprop:Generator_ParentPropName="PaymentMethods_N01Row" />
-      <msdata:Relationship name="FK_Payments_N01_PaymentStatus_N01" msdata:parent="PaymentStatus_N01" msdata:child="Payments_N01" msdata:parentkey="StatusID_N01" msdata:childkey="StatusID_N01" msprop:Generator_UserParentTable="PaymentStatus_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_PaymentStatus_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_ParentPropName="PaymentStatus_N01Row" msprop:Generator_UserRelationName="FK_Payments_N01_PaymentStatus_N01" />
-      <msdata:Relationship name="FK_OrderItems_N01_Products_N01" msdata:parent="Products_N01" msdata:child="OrderItems_N01" msdata:parentkey="ProductID_N01" msdata:childkey="ProductID_N01" msprop:Generator_UserParentTable="Products_N01" msprop:Generator_UserChildTable="OrderItems_N01" msprop:Generator_RelationVarName="relationFK_OrderItems_N01_Products_N01" msprop:Generator_ChildPropName="GetOrderItems_N01Rows" msprop:Generator_ParentPropName="Products_N01Row" msprop:Generator_UserRelationName="FK_OrderItems_N01_Products_N01" />
-      <msdata:Relationship name="FK_Products_N01_Categories_N01" msdata:parent="Categories_N01" msdata:child="Products_N01" msdata:parentkey="CategoryID_N01" msdata:childkey="CategoryID_N01" msprop:Generator_UserParentTable="Categories_N01" msprop:Generator_UserChildTable="Products_N01" msprop:Generator_RelationVarName="relationFK_Products_N01_Categories_N01" msprop:Generator_ChildPropName="GetProducts_N01Rows" msprop:Generator_UserRelationName="FK_Products_N01_Categories_N01" msprop:Generator_ParentPropName="Categories_N01Row" />
-      <msdata:Relationship name="FK_Orders_N01_User_N01" msdata:parent="User_N01" msdata:child="Orders_N01" msdata:parentkey="UserID_N01" msdata:childkey="UserID_N01" msprop:Generator_UserParentTable="User_N01" msprop:Generator_UserChildTable="Orders_N01" msprop:Generator_RelationVarName="relationFK_Orders_N01_User_N01" msprop:Generator_ChildPropName="GetOrders_N01Rows" msprop:Generator_ParentPropName="User_N01Row" msprop:Generator_UserRelationName="FK_Orders_N01_User_N01" />
-      <msdata:Relationship name="FK_User_N01_Roles_N01" msdata:parent="Roles_N01" msdata:child="User_N01" msdata:parentkey="RoleID_N01" msdata:childkey="RoleID_N01" msprop:Generator_UserParentTable="Roles_N01" msprop:Generator_UserChildTable="User_N01" msprop:Generator_RelationVarName="relationFK_User_N01_Roles_N01" msprop:Generator_ChildPropName="GetUser_N01Rows" msprop:Generator_UserRelationName="FK_User_N01_Roles_N01" msprop:Generator_ParentPropName="Roles_N01Row" />
+      <msdata:Relationship name="FK_OrderItems_N01_Orders_N01" msdata:parent="Orders_N01" msdata:child="OrderItems_N01" msdata:parentkey="OrderID_N01" msdata:childkey="OrderID_N01" msprop:Generator_UserParentTable="Orders_N01" msprop:Generator_UserChildTable="OrderItems_N01" msprop:Generator_RelationVarName="relationFK_OrderItems_N01_Orders_N01" msprop:Generator_ChildPropName="GetOrderItems_N01Rows" msprop:Generator_UserRelationName="FK_OrderItems_N01_Orders_N01" msprop:Generator_ParentPropName="Orders_N01Row" />
+      <msdata:Relationship name="FK_Orders_N01_OrderStatus_N01" msdata:parent="OrderStatus_N01" msdata:child="Orders_N01" msdata:parentkey="StatusID_N01" msdata:childkey="StatusID_N01" msprop:Generator_UserParentTable="OrderStatus_N01" msprop:Generator_UserChildTable="Orders_N01" msprop:Generator_RelationVarName="relationFK_Orders_N01_OrderStatus_N01" msprop:Generator_ChildPropName="GetOrders_N01Rows" msprop:Generator_UserRelationName="FK_Orders_N01_OrderStatus_N01" msprop:Generator_ParentPropName="OrderStatus_N01Row" />
+      <msdata:Relationship name="FK_Payments_N01_Orders_N01" msdata:parent="Orders_N01" msdata:child="Payments_N01" msdata:parentkey="OrderID_N01" msdata:childkey="OrderID_N01" msprop:Generator_UserParentTable="Orders_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_Orders_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_ParentPropName="Orders_N01Row" msprop:Generator_UserRelationName="FK_Payments_N01_Orders_N01" />
+      <msdata:Relationship name="FK_Payments_N01_PaymentMethods_N01" msdata:parent="PaymentMethods_N01" msdata:child="Payments_N01" msdata:parentkey="MethodID_N01" msdata:childkey="MethodID_N01" msprop:Generator_UserParentTable="PaymentMethods_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_PaymentMethods_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_ParentPropName="PaymentMethods_N01Row" msprop:Generator_UserRelationName="FK_Payments_N01_PaymentMethods_N01" />
+      <msdata:Relationship name="FK_Payments_N01_PaymentStatus_N01" msdata:parent="PaymentStatus_N01" msdata:child="Payments_N01" msdata:parentkey="StatusID_N01" msdata:childkey="StatusID_N01" msprop:Generator_UserParentTable="PaymentStatus_N01" msprop:Generator_UserChildTable="Payments_N01" msprop:Generator_RelationVarName="relationFK_Payments_N01_PaymentStatus_N01" msprop:Generator_ChildPropName="GetPayments_N01Rows" msprop:Generator_UserRelationName="FK_Payments_N01_PaymentStatus_N01" msprop:Generator_ParentPropName="PaymentStatus_N01Row" />
+      <msdata:Relationship name="FK_OrderItems_N01_Products_N01" msdata:parent="Products_N01" msdata:child="OrderItems_N01" msdata:parentkey="ProductID_N01" msdata:childkey="ProductID_N01" msprop:Generator_UserParentTable="Products_N01" msprop:Generator_UserChildTable="OrderItems_N01" msprop:Generator_RelationVarName="relationFK_OrderItems_N01_Products_N01" msprop:Generator_ChildPropName="GetOrderItems_N01Rows" msprop:Generator_UserRelationName="FK_OrderItems_N01_Products_N01" msprop:Generator_ParentPropName="Products_N01Row" />
+      <msdata:Relationship name="FK_Products_N01_Categories_N01" msdata:parent="Categories_N01" msdata:child="Products_N01" msdata:parentkey="CategoryID_N01" msdata:childkey="CategoryID_N01" msprop:Generator_UserParentTable="Categories_N01" msprop:Generator_UserChildTable="Products_N01" msprop:Generator_RelationVarName="relationFK_Products_N01_Categories_N01" msprop:Generator_ChildPropName="GetProducts_N01Rows" msprop:Generator_ParentPropName="Categories_N01Row" msprop:Generator_UserRelationName="FK_Products_N01_Categories_N01" />
+      <msdata:Relationship name="FK_Orders_N01_User_N01" msdata:parent="User_N01" msdata:child="Orders_N01" msdata:parentkey="UserID_N01" msdata:childkey="UserID_N01" msprop:Generator_UserParentTable="User_N01" msprop:Generator_UserChildTable="Orders_N01" msprop:Generator_RelationVarName="relationFK_Orders_N01_User_N01" msprop:Generator_ChildPropName="GetOrders_N01Rows" msprop:Generator_UserRelationName="FK_Orders_N01_User_N01" msprop:Generator_ParentPropName="User_N01Row" />
+      <msdata:Relationship name="FK_User_N01_Roles_N01" msdata:parent="Roles_N01" msdata:child="User_N01" msdata:parentkey="RoleID_N01" msdata:childkey="RoleID_N01" msprop:Generator_UserParentTable="Roles_N01" msprop:Generator_UserChildTable="User_N01" msprop:Generator_RelationVarName="relationFK_User_N01_Roles_N01" msprop:Generator_ChildPropName="GetUser_N01Rows" msprop:Generator_ParentPropName="Roles_N01Row" msprop:Generator_UserRelationName="FK_User_N01_Roles_N01" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

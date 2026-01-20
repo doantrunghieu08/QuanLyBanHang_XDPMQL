@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang
 {
-    public partial class FormQuanLyDanhMuc : Form
+    public partial class FormThongKeSanPham : Form
     {
-        public FormQuanLyDanhMuc()
+        public FormThongKeSanPham()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
